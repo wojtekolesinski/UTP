@@ -23,8 +23,11 @@ public class Main {
     );
     double ratePLNvsEUR = 4.30;
     List<String> result = dest.stream()
-    		.filter(s -> s.equals(s.toUpperCase()) && s.split(" ")[0].length() == 3 && s.split(" ")[1].length() == 3)
-    		.map(s -> String.format("to %s - price in PLN:\t%.0f", s.split(" ")[1], Double.parseDouble(s.split(" ")[2]) * ratePLNvsEUR))
+    		.filter(s -> s.startsWith("WAW"))
+    		.map(s -> {
+    			String[] data = s.split(" ");
+    			return String.format("to %s - price in PLN:\t%.0f", data[1], Double.parseDouble(data[2]) * ratePLNvsEUR);
+    		})
     		.collect(Collectors.toList());
 
     for (String r : result) System.out.println(r);

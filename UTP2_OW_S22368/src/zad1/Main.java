@@ -13,8 +13,11 @@ public class Main {
 
   static List<String> getPricesInPLN(List<String> destinations, double xrate) {
     return ListCreator.collectFrom(destinations)
-                       .when(s -> s.equals(s.toUpperCase()) && s.split(" ")[0].length() == 3 && s.split(" ")[1].length() == 3) 
-                       .mapEvery(s -> String.format("to %s - price in PLN:\t%.0f", s.split(" ")[1], Double.parseDouble(s.split(" ")[2]) * xrate));
+                       .when(s -> s.startsWith("WAW")) 
+                       .mapEvery(s -> {
+                    	   String[] data = s.split(" ");
+                    	   return String.format("to %s - price in PLN:\t%.0f", data[1], Double.parseDouble(data[2]) * xrate);
+                       });
   }
   
   public static void main(String[] args) {
