@@ -46,7 +46,7 @@ public class Maybe <T> {
 	}
 	
 	public Maybe<T> filter(Predicate<T> pred) {
-		if (pred.test(value) || value == null) return this;
+		if (value == null || pred.test(value)) return this;
 		return new Maybe();
 	}
 	
