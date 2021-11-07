@@ -62,36 +62,18 @@ public class ProgLang {
 	}
 	
 	public Map<String, List<String>> getLangsMapSortedByNumOfProgs() {
-//		List<Entry<String, List<String>>> entries = new ArrayList<>(langsMap.entrySet());
-//		Map<String, List<String>> result = new LinkedHashMap<>(); 
-//		entries.sort(Entry.comparingByValue(
-//				(v1, v2) -> v2.size() - v1.size()
-//				));
-//		entries.forEach(e -> result.put(e.getKey(), e.getValue()));
 		return sorted(langsMap, (e1, e2) -> {
 			if (e1.getValue().size() != e2.getValue().size())
 				return e2.getValue().size() - e1.getValue().size();
-			else
-				return e1.getKey().compareTo(e2.getKey());
+			return e1.getKey().compareTo(e2.getKey());
 			});
 	}
 
 	public Map<String, List<String>> getProgsMapSortedByNumOfLangs() {
-//		List<Entry<String, List<String>>> entries = new ArrayList<>(progsMap.entrySet());
-//		Map<String, List<String>> result = new LinkedHashMap<>(); 
-//		entries.sort(Entry.comparingByValue(
-//				(v1, v2) -> v2.size() - v1.size()
-//				));
-//		entries.forEach(e -> result.put(e.getKey(), e.getValue()));
-//		return sorted(progsMap, Entry.comparingByValue(
-//				(v1, v2) -> v2.size() - v1.size()
-//				));
-		
 		return sorted(progsMap, (e1, e2) -> {
 			if (e1.getValue().size() != e2.getValue().size())
 				return e2.getValue().size() - e1.getValue().size();
-			else
-				return e1.getKey().compareTo(e2.getKey());
+			return e1.getKey().compareTo(e2.getKey());
 			});
 	}
 	
@@ -112,6 +94,4 @@ public class ProgLang {
 				.filter(predicate)
 				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (oldVal, newVal) -> newVal, LinkedHashMap::new));		
 	}
-	
-	
 }
