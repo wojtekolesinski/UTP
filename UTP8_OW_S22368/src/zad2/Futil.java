@@ -14,9 +14,6 @@ import java.util.List;
 
 
 public class Futil {
-	
-//	public FileVisitor<Path> fv = 
-
 		
 	public static void processDir(String dirname, String resultFileName) {
 		try {
@@ -41,7 +38,6 @@ public class Futil {
 					Path resultPath = Paths.get("./" + resultFileName);
 					if (!Files.exists(resultPath)) {
 						Files.createFile(resultPath);
-						System.out.println("Created file " + resultFileName);
 					}
 					
 					Files.write(resultPath, lines, StandardCharsets.UTF_8);

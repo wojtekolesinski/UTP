@@ -11,7 +11,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class Finder {
 	
@@ -22,7 +21,7 @@ public class Finder {
 	}
 	
 	public int getIfCount() {
-		Pattern pattern = Pattern.compile("if");
+		Pattern pattern = Pattern.compile("(?<!//\\s*)if");
 		int ifCount = 0;
 		try {
 			for (String line: Files.readAllLines(Path.of(fileName))) {
@@ -33,10 +32,8 @@ public class Finder {
 				}
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		
 		return ifCount;
 	}
@@ -54,10 +51,8 @@ public class Finder {
 			}
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		
 		return ifCount;
 	}
