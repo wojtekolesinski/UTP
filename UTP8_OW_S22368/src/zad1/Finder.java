@@ -9,6 +9,7 @@ package zad1;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,7 +25,7 @@ public class Finder {
 		Pattern pattern = Pattern.compile("(?<!//\\s*)if");
 		int ifCount = 0;
 		try {
-			for (String line: Files.readAllLines(Path.of(fileName))) {
+			for (String line: Files.readAllLines(Paths.get(fileName))) {
 				Matcher matcher = pattern.matcher(line);
 				
 				while (matcher.find()) {
@@ -42,7 +43,7 @@ public class Finder {
 		Pattern pattern = Pattern.compile(string);
 		int ifCount = 0;
 		try {
-			for (String line: Files.readAllLines(Path.of(fileName))) {
+			for (String line: Files.readAllLines(Paths.get(fileName))) {
 				Matcher matcher = pattern.matcher(line);
 				
 				while (matcher.find()) {

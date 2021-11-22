@@ -17,7 +17,7 @@ public class Futil {
 		
 	public static void processDir(String dirname, String resultFileName) {
 		try {
-			Files.walkFileTree(Path.of(dirname), new SimpleFileVisitor<Path>(){
+			Files.walkFileTree(Paths.get(dirname), new SimpleFileVisitor<Path>(){
 				
 				private List<String> lines;
 
