@@ -8,7 +8,7 @@ package zad1;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,14 +21,26 @@ public class Finder {
 	}
 	
 	public int getIfCount() {
-		Pattern pattern = Pattern.compile("(?<!//\\s*)if");
+		Pattern pattern = Pattern.compile("(\\bif\\b)");
+		Pattern comment = Pattern.compile("//");
+		Pattern string = Pattern.compile("\"");
+		
 		int ifCount = 0;
 		try {
-			for (String line: Files.readAllLines(Path.of(fileName))) {
+			for (String line: Files.readAllLines(Paths.get(fileName))) {
 				Matcher matcher = pattern.matcher(line);
 				
 				while (matcher.find()) {
-					ifCount++;
+					Matcher commentMatcher = comment.matcher(line.subSequence(0, matcher.start(1)));
+					
+					Matcher stringMatcher = string.matcher(line.subSequence(0, matcher.start(1)));
+					int stringSymbolsCount = 0;
+					while (stringMatcher.find()) stringSymbolsCount++;
+					
+					if (!commentMatcher.find() && stringSymbolsCount % 2 == 0) {
+//						System.out.println(line.subSequence(0, matcher.end(1)));
+						ifCount++;
+					}
 				}
 			}
 		} catch (IOException e) {
@@ -42,7 +54,7 @@ public class Finder {
 		Pattern pattern = Pattern.compile(string);
 		int ifCount = 0;
 		try {
-			for (String line: Files.readAllLines(Path.of(fileName))) {
+			for (String line: Files.readAllLines(Paths.get(fileName))) {
 				Matcher matcher = pattern.matcher(line);
 				
 				while (matcher.find()) {
