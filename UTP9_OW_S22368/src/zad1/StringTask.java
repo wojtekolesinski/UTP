@@ -4,7 +4,7 @@ public class StringTask implements Runnable {
 	
 	private String toConcat;
 	private int howManyTimes;
-	private TaskState state;
+	private volatile TaskState state;
 	private String result;
 	private Thread thread;
 
@@ -30,9 +30,9 @@ public class StringTask implements Runnable {
 	}
 	
 	public void abort() {
-//		if (state == TaskState.RUNNING) {
-		thread.interrupt();
-//		}
+		if (state == TaskState.RUNNING) {
+			thread.interrupt();
+		}
 		state = TaskState.ABORTED;
 	}
 	

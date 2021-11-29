@@ -15,9 +15,8 @@ public class Main {
     if (args.length > 0 && args[0].equals("abort")) {
     	new Thread(() -> {
     		try {
-				Thread.sleep(500);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
     		task.abort();
