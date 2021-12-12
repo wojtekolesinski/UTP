@@ -9,16 +9,33 @@ package zad1;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
 
   public static void main(String[] args) {
-	  try {
-		  Files.list(Paths.get("..")).forEach(f -> System.out.println(f.getFileName()));
-		Files.lines(Paths.get("../Towary.txt.")).limit(1000).forEach(System.out::println);
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	  Magazyn magazyn = new Magazyn();
+	  Czytnik czytnik = new Czytnik(magazyn, Paths.get("../Towary.txt"));
+	  SumaWag suma = new SumaWag(magazyn);
+	  
+	  ExecutorService executor = Executors.newFixedThreadPool(2);
+	  executor.submit(czytnik);
+	  executor.submit(suma);
+	  
+	  
+//	  Thread czytnikThread = new Thread(czytnik);
+//	  Thread sumaThread = new Thread(suma);
+//	  
+//	  czytnikThread.start();
+//	  sumaThread.start();
+//	  
+//	  try {
+//		czytnikThread.join();
+//		sumaThread.join();
+//	} catch (InterruptedException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
   }
 }
