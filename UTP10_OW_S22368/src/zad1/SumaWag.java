@@ -21,7 +21,7 @@ public class SumaWag implements Runnable {
 				System.out.println("Policzono wage "+i+" towarów");
 			}
 		}
-		System.out.println("Sumaryczna waga wyniosła: "+suma);
+		System.out.println(suma);
 	}
 
 }

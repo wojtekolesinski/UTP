@@ -9,33 +9,51 @@ package zad1;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+import javax.print.attribute.standard.DateTimeAtCompleted;
 
 public class Main {
+	
+	public static long exec() {
+		Magazyn magazyn = new Magazyn();
+		Czytnik czytnik = new Czytnik(magazyn, Paths.get("../Towary.txt"));
+		SumaWag suma = new SumaWag(magazyn);
+		  
+		long startTime = System.currentTimeMillis();
+		Thread t1 = new Thread(czytnik);
+		Thread t2 = new Thread(suma);
+		  
+		t1.start();
+		t2.start();
+		  
+		try {
+			t1.join();
+			t2.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		  
 
+		long endTime = System.currentTimeMillis();
+//		System.err.println("Execution time: " + (endTime - startTime)+"ms");
+		return endTime - startTime;
+		  
+	}
+	
   public static void main(String[] args) {
-	  Magazyn magazyn = new Magazyn();
-	  Czytnik czytnik = new Czytnik(magazyn, Paths.get("../Towary.txt"));
-	  SumaWag suma = new SumaWag(magazyn);
+	  exec();
+		/*
+		 * List<Long> executionTimes = new ArrayList<>(); for (int i = 0; i < 1000; i++)
+		 * { executionTimes.add(exec()); } System.out.println("\n\n"); long sum = 0; for
+		 * (long el: executionTimes) sum += el;
+		 * System.out.println("Mean execution time: " +
+		 * ((double)sum/executionTimes.size()));
+		 */
 	  
-	  ExecutorService executor = Executors.newFixedThreadPool(2);
-	  executor.submit(czytnik);
-	  executor.submit(suma);
-	  
-	  
-//	  Thread czytnikThread = new Thread(czytnik);
-//	  Thread sumaThread = new Thread(suma);
-//	  
-//	  czytnikThread.start();
-//	  sumaThread.start();
-//	  
-//	  try {
-//		czytnikThread.join();
-//		sumaThread.join();
-//	} catch (InterruptedException e) {
-//		// TODO Auto-generated catch block
-//		e.printStackTrace();
-//	}
   }
 }

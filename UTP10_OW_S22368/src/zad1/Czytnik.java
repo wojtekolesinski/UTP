@@ -23,7 +23,6 @@ public class Czytnik implements Runnable {
 		try {
 			lines = Files.lines(sciezka).iterator();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
