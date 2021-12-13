@@ -1,13 +1,7 @@
 package zad1;
 
-import java.util.List;
-import java.util.Queue;
 import java.util.Stack;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Magazyn {
 	private Stack<Towar> stack = new Stack<>();
