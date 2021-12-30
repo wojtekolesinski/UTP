@@ -11,8 +11,6 @@ public class Magazyn {
 		stack.add(zaladunek);
 	}
 	
-	
-	
 	public Towar rozladuj() {
 		while (stack.isEmpty()) {
 			try {
