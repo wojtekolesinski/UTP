@@ -1,0 +1,17 @@
+<project name="db" default="dbinst" basedir=".">
+	<target name="dbinst">
+		<exec executable="/Users/wojtek/PJATK/SEM 3/UTP/LAB/Derby/derby.bat">
+			<arg line="ij createdb.sql" />
+		</exec>
+	</target>
+	<target name="start-db">
+		<exec executable="/Users/wojtek/PJATK/SEM 3/UTP/LAB/Derby/derby.bat">
+			<arg line="start" />
+		</exec>
+	</target>
+	<target name="stop-db">
+		<exec executable="/Users/wojtek/PJATK/SEM 3/UTP/LAB/Derby/derby.bat">
+			<arg line="stop" />
+		</exec>
+	</target>
+</project>
