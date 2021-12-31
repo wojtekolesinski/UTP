@@ -1,0 +1,17 @@
+<project name="db" default="dbinst" basedir=".">
+    <target name="dbinst">
+        <exec executable="./dbbuild.sh">
+            <arg line="load createdb.sql" />
+        </exec>
+    </target>
+    <target name="start-db">
+        <exec executable="./dbbuild.sh">
+            <arg line="start" />
+        </exec>
+    </target>
+    <target name="stop-db">
+        <exec executable="./dbbuild.sh">
+            <arg line="stop" />
+        </exec>
+    </target>
+</project>
