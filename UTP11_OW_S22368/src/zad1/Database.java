@@ -9,8 +9,12 @@ public class Database {
 
     public Database(String url, TravelData travelData) {
         try (Connection con = DriverManager.getConnection(url)) {
-            md = con.getMetaData();
-            reportInfo();
+//            md = con.getMetaData();
+//            reportInfo();
+            PreparedStatement insert = con.prepareStatement("INSERT INTO Offer(country, departureDate, returnDate)");
+
+            Statement stmt = con.createStatement();
+            stmt.close();
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -18,7 +18,7 @@ public class Main {
     String dateFormat = "yyyy-MM-dd";
     for (String locale : Arrays.asList("pl_PL", "en_GB")) {
       List<String> odlist = travelData.getOffersDescriptionsList(locale, dateFormat);
-//      for (String od : odlist) System.out.println(od);
+      for (String od : odlist) System.out.println(od);
     }
     // --- część bazodanowa
     String url = "jdbc:derby://localhost/utpdb";

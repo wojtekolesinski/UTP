@@ -11,14 +11,16 @@ public class Offer {
     private Locale country;
     private Date departureDate;
     private Date returnDate;
+    private Place destination;
     private BigDecimal price;
     private Currency currency;
 
-    public Offer(Locale locale, Locale country, Date departureDate, Date returnDate, BigDecimal price, Currency currency) {
+    public Offer(Locale locale, Locale country, Date departureDate, Date returnDate, Place destination, BigDecimal price, Currency currency) {
         this.locale = locale;
         this.country = country;
         this.departureDate = departureDate;
         this.returnDate = returnDate;
+        this.destination = destination;
         this.price = price;
         this.currency = currency;
     }
@@ -45,5 +47,22 @@ public class Offer {
 
     public Currency getCurrency() {
         return currency;
+    }
+
+    public Place getDestination() {
+        return destination;
+    }
+
+    @Override
+    public String toString() {
+        String sb = "Offer{" + "\nlocale=" + locale +
+                ",\n country=" + country +
+                ",\n departureDate=" + departureDate +
+                ",\n returnDate=" + returnDate +
+                ",\n destination=" + destination +
+                ",\n price=" + price +
+                ",\n currency=" + currency +
+                '}';
+        return sb;
     }
 }

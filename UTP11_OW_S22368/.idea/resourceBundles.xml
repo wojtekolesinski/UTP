@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ResourceBundleManager">
+    <file url="file://$PROJECT_DIR$/src/zad1/locales/places.properties" />
+    <file url="file://$PROJECT_DIR$/src/zad1/locales/places_pl_PL.properties" />
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/zad1/locales/places.properties" />
+      <file value="file://$PROJECT_DIR$/src/zad1/locales/places_pl_PL.properties" />
+      <base-name>places</base-name>
+    </custom-resource-bundle>
+  </component>
+</project>
