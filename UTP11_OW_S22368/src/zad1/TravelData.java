@@ -21,7 +21,7 @@ public class TravelData {
                 try {
                     Files.lines(path).forEach(line -> {
                         String[] data = line.split("\t");
-                        Locale locale = Locale.forLanguageTag(data[0].split("_")[0]);
+                        Locale locale = Locale.forLanguageTag(data[0].replace("_", "-"));
                         Locale country = Arrays.stream(Locale.getAvailableLocales())
                                 .filter(loc -> loc.getDisplayCountry(locale).equals(data[1]))
                                 .findFirst()
@@ -38,7 +38,6 @@ public class TravelData {
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
-
                         ResourceBundle bundle = ResourceBundle.getBundle("zad1.locales.places", locale);
 
                         Place place = Place.valueOf(bundle
@@ -74,12 +73,12 @@ public class TravelData {
         ResourceBundle bundle = ResourceBundle.getBundle("zad1.locales.places", locale);
 
         for (Offer offer: offers) {
-            String description = offer.getCountry().getDisplayCountry(locale) +
-                    " " + df.format(offer.getDepartureDate()) +
-                    " " + df.format(offer.getReturnDate()) +
-                    " " + bundle.getString(offer.getDestination().getName()) +
-                    " " + NumberFormat.getInstance(locale).format(offer.getPrice()) +
-                    " " + offer.getCurrency();
+            String description = offer.getCountry().getDisplayCountry(locale) + " "
+                + df.format(offer.getDepartureDate()) + " "
+                + df.format(offer.getReturnDate()) + " "
+                + bundle.getString(offer.getPlace().getName()) + " "
+                + NumberFormat.getInstance(locale).format(offer.getPrice()) + " "
+                + offer.getCurrency();
 
             offersDescriptions.add(description);
         }
@@ -87,4 +86,7 @@ public class TravelData {
         return offersDescriptions;
     }
 
+    public List<Offer> getOffers() {
+        return offers;
+    }
 }

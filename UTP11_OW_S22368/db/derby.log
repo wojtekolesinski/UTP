@@ -1,8 +1,7 @@
+Wed Jan 05 18:50:33 CET 2022 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Tue Jan 04 09:45:21 CET 2022:
-Booting Derby version The Apache Software----------------------------------------------------------------
-Tue Jan 04 09:45:45 CET 2022:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-017e-2443-80ba-000015d63cc5 
+Wed Jan 05 18:50:48 CET 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-017e-2b5d-28fa-000015d63cc5 
 on database directory /Users/wojtek/PJATK/SEM 3/UTP/LAB/UTP11_OW_S22368/db/utpdb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
 Loaded from file:/opt/derby/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -13,7 +12,3 @@ os.arch=x86_64
 os.version=12.1
 derby.system.home=/Users/wojtek/PJATK/SEM 3/UTP/LAB/UTP11_OW_S22368/db
 Database Class Loader started - derby.database.classpath=''
---
-Tue Jan 04 09:45:21 CET 2022:
-Shutting down instance a816c00e-017e-2443-a820-00000f83a7b8 on database directory /Users/wojtek/PJATK/SEM 3/UTP/LAB/UTP11_OW_S22368/db/utpdb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
-----------------------------------------------------------------
