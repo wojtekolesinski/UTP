@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-DERBY_HOME="/opt/derby"
+DERBY_HOME=".."
 
 arg=$1
 

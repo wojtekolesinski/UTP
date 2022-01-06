@@ -3,11 +3,6 @@ package zad1;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.math.BigDecimal;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.NumberFormat;
-import java.util.Date;
 import java.util.Locale;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -15,7 +10,6 @@ import java.util.ResourceBundle;
 public class GUI extends JFrame {
     private final Database db;
     private DefaultTableModel model;
-    private JTable table;
 
     public GUI(Database db) throws HeadlessException {
         this.db = db;
@@ -41,7 +35,6 @@ public class GUI extends JFrame {
         model = initModel(langs[comboBox.getSelectedIndex()]);
         JTable table = new JTable(model);
         table.getTableHeader().setBackground(Color.GREEN);
-//        table.get
         table.setDragEnabled(false);
         table.setPreferredScrollableViewportSize(new Dimension(750, 200));
         table.setFillsViewportHeight(true);
@@ -80,7 +73,6 @@ public class GUI extends JFrame {
     private void updateData(Locale locale) {
         ResourceBundle headers = ResourceBundle.getBundle("zad1.locales.headers", locale);
 
-//        model = initModel(locale);
         model.setColumnIdentifiers(new Object[] {
             headers.getString("Country"),
             headers.getString("Departure Date"),
