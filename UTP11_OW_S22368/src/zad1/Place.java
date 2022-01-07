@@ -1,7 +1,7 @@
 package zad1;
 
 public enum Place {
-    SEE("see"),
+    SEA("sea"),
     LAKE("lake"),
     MOUNTAINS("mountains");
 
