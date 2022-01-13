@@ -21,7 +21,7 @@ public class Main {
       for (String od : odlist) System.out.println(od);
     }
     // --- część bazodanowa
-    String url = "jdbc:derby://localhost/utpdb";
+    String url = "jdbc:derby:utpdb;create=true";
     Database db = new Database(url, travelData);
     db.create();
     db.showGui();
